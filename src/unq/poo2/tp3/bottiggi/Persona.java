@@ -34,7 +34,7 @@ public class Persona {
 		}
 		
 		public int getEdad() { 
-		// no se conoce como se obtiene este resultado gracias al encapsulamiento.
+		// no se conoce como se obtiene este resultado gracias al encapsulamiento..
 			
 			        LocalDate fechaActual = LocalDate.now();
 			        
