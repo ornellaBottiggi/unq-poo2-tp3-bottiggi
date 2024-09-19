@@ -1,24 +1,25 @@
 package unq.poo2.tp3.bottiggi;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.Period;
 
 public class Persona {
 	private String nombre;
-	private Date fechaDeNacimiento;
+	private LocalDate fechaDeNacimiento;
 	
 	
-		public Persona(String nombre, Date fechaDeNacimiento) {
+		public Persona(String nombre, LocalDate fechaDeNacimiento) {
 			this.setNombre(nombre);
 			this.setFechaDeNacimiento(fechaDeNacimiento);
 		}
 
 
-		public Date getFechaDeNacimiento() {
+		public LocalDate getFechaDeNacimiento() {
 			return fechaDeNacimiento;
 		}
 
 
-		public void setFechaDeNacimiento(Date fechaDeNacimiento) {
+		public void setFechaDeNacimiento(LocalDate fechaDeNacimiento) {
 			this.fechaDeNacimiento = fechaDeNacimiento;
 		}
 
@@ -31,4 +32,24 @@ public class Persona {
 		public void setNombre(String nombre) {
 			this.nombre = nombre;
 		}
+		
+		public int getEdad() { 
+		// no se conoce como se obtiene este resultado gracias al encapsulamiento.
+			
+			        LocalDate fechaActual = LocalDate.now();
+			        
+			        Period periodo = Period.between(this.fechaDeNacimiento, fechaActual);
+			        
+			        return periodo.getYears();
+		}
+		
+		public boolean menorQue (Persona persona) {
+			
+			int edadPersona = persona.getEdad();
+			
+			return (this.getEdad() < edadPersona);
+		}
 }
+
+		
+
